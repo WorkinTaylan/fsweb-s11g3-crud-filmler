@@ -45,21 +45,21 @@ CRUD uygulamaları çoğu web uygulamasının temelidir. Harici bir kaynaktan ve
 
 ### Görev 1: Proje Kurulumu
 
-- [ ] Forklayın.
-- [ ] Klonlayın.
-- [ ] Proje dizinine girin
-- [ ] `npm install`
-- [ ] `npm start`
+- [*] Forklayın.
+- [*] Klonlayın.
+- [*] Proje dizinine girin
+- [*] `npm install`
+- [*] `npm start`
 
 ### Görev 2: Proje Gereksinimleri
 
 #### Film düzenleme
 
-- [ ] Öncelikle, filmi düzenle bileşenine gidebilmemiz gerekiyor. App.js içinde, `<EditMovieForm> ` bileşenine edit route unu ekleyin.
+- [*] Öncelikle, filmi düzenle bileşenine gidebilmemiz gerekiyor. App.js içinde, `<EditMovieForm> ` bileşenine edit route unu ekleyin.
 
-- [ ] Ardından, url aracılığıyla bileşene iletilen idyi almamız gerekiyor.. id yi almak için `useParams` hookunu kullanın.
+- [*] Ardından, url aracılığıyla bileşene iletilen idyi almamız gerekiyor.. id yi almak için `useParams` hookunu kullanın.
 
-- [ ] Mevcut filmin niteliklerini yerel form stateimize yükleyebilmeliyiz. `EditMovieForm` bağlandığında, mevcut idmizin filmini api'den alın ve yerel state'e döndürülen verileri kaydedin.
+- [*] Mevcut filmin niteliklerini yerel form stateimize yükleyebilmeliyiz. `EditMovieForm` bağlandığında, mevcut idmizin filmini api'den alın ve yerel state'e döndürülen verileri kaydedin.
 
 - [ ] Bu noktada, düzenleme formu gönderildiğinde hiçbir şey olmuyor. Sunucuyu güncellenmiş film verilerimizle güncellemek için gereken api çağrısını ekleyin.
 

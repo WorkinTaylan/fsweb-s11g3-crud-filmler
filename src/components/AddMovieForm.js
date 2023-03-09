@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+//import {nanoid} from "nanoid";
 
 import axios from "axios";
 
-const EditMovieForm = (props) => {
+const AddMovieForm = (props) => {
   const { push } = useHistory();
   const {id}=useParams()
 
   const { setMovies } = props;
-  const [movie, setMovie] = useState({
+  const [newmovie, setNewMovie] = useState({
     title: "",
     director: "",
     genre: "",
@@ -21,13 +21,13 @@ const EditMovieForm = (props) => {
   useEffect(()=>{
     axios
     .get(`http://localhost:9000/api/movies/${id}`)
-    .then((res)=>setMovie({...res.data}))
+    .then((res)=>setNewMovie({...res.data}))
     .catch((err)=>console.log(err))
   }, [id])
 
   const handleChange = (e) => {
-    setMovie({
-      ...movie,
+    setNewMovie({
+      ...newmovie,
       [e.target.name]: e.target.value,
     });
   };
@@ -35,7 +35,7 @@ const EditMovieForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:9000/api/movies/${id}`, movie)
+      .post(`http://localhost:9000/api/movies/`, newmovie)
       .then((res) => {
         setMovies(res.data);
         push(`/movies/${id}`);
@@ -45,13 +45,13 @@ const EditMovieForm = (props) => {
       });
   };
 
-  const { title, director, genre, metascore, description } = movie;
+  const { title, director, genre, metascore, description } = newmovie;
 
   return (
-    <div className="bg-white rounded-md shadow flex-1 dark:bg-slate-800 dark:text-white">
+    <div className="bg-white rounded-md shadow flex-1">
       <form onSubmit={handleSubmit}>
         <div className="p-5 pb-3 border-b border-zinc-200">
-          <h4 className="text-xl font-bold">Düzenleniyor <strong>{movie.title}</strong></h4>
+          <h4 className="text-xl font-bold">Yeni Film <strong></strong></h4>
         </div>
 
         <div className="px-5 py-3">
@@ -109,7 +109,7 @@ const EditMovieForm = (props) => {
             type="submit"
             className="myButton bg-green-700 hover:bg-green-600"
           >
-            Ekle
+            Ekle Gitsin
           </button>
         </div>
       </form>
@@ -117,4 +117,4 @@ const EditMovieForm = (props) => {
   );
 };
 
-export default EditMovieForm;
+export default AddMovieForm;
